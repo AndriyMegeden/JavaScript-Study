@@ -1,0 +1,105 @@
+"use strict";
+
+// створення пірамідки вивчення циклу for
+let res = "";
+
+for (let i = 1; i < 6; i++) {
+  for (let j = 0; j < i; j++) {
+    res += "*";
+  }
+  res += "\n";
+}
+
+console.log(res);
+
+//*
+//**
+//***
+//****
+//*****
+//******
+
+// виведення фільмів в консоль
+let personalMovie = {
+  count: 0,
+  movies: {},
+  actors: {},
+  genres: [],
+  privat: false,
+};
+
+function showMyDB(db) {
+  if (!db) {
+    console.log(personalMovie);
+  }
+}
+
+showMyDB(personalMovie.privat);
+
+// функція яка видає вікно з номером жанру від 1-3 і записує це в масив genres
+function writeGenres() {
+  for (let i = 1; i <= 3; i++) {
+    const genre = prompt(`Ваш любимий жанр під номером ${i}`, "");
+    personalMovie.genres[i - 1] = genre;
+  }
+}
+writeGenres();
+
+// цикл шоб видати спливаючі вікна 2 рази перед тим як закінчити
+for (let i = 0; i < 2; i++) {
+  // ці змінні видають спливаючі вікна з повідомленням
+  let HowFilms = prompt("Який фільм ви дивились", "");
+  let numberOfFilms = +prompt("Скільки фільмів ви бачили", "");
+
+  // Ця умова перевіряє, чи HowFilms не є пустим рядком і чи numberOfFilms не є відємним числом.
+  if (!HowFilms.trim() || !numberOfFilms < 0) {
+    alert("Ви ввели некоректні дані. Будь ласка, введіть їх ще раз.");
+    i--; // Зменшуємо значення лічильника, щоб цикл виконався ще раз
+
+    continue; // Переходимо до наступної ітерації циклу
+
+    // Ця умова перевіряє, чи numberOfFilms є числом якщо true то воно не є числом
+  } else if (isNaN(numberOfFilms)) {
+    alert("введіть число");
+    i--;
+    // У цій умові ми перевіряємо, чи HowFilms не перевищує 50 символів, і чи numberOfFilms не більше 10 000
+  } else if (HowFilms.length > 50 || numberOfFilms > 10000) {
+    alert("Введені дані занадто довгі. Будь ласка, введіть їх ще раз.");
+    i--; // Зменшуємо значення лічильника, щоб цикл виконався ще раз
+    continue; // Переходимо до наступної ітерації циклу
+  }
+  // перевіряєм і додаєм в масив тільки якщо numberOfFilms число а HowFilms string
+  if (!isNaN(numberOfFilms) && typeof HowFilms === "string") {
+    personalMovie.movies[HowFilms] = numberOfFilms;
+    // завдяки += в count сумуються всі значення numberOfFilms
+    personalMovie.count += numberOfFilms;
+  }
+}
+
+if (personalMovie.count <= 15) {
+  console.log("мало фільмів");
+}
+
+if (personalMovie.count >= 15) {
+  console.log("можна і більше");
+}
+
+if (personalMovie.count >= 20) {
+  console.log("багато фільмів");
+}
+
+// виводим в консоль
+console.log(personalMovie);
+
+const usd = 28;
+const discount = 0.9;
+
+function convert(am, curr) {
+  return am * curr;
+}
+
+function promotion(result) {
+  console.log(result * discount);
+}
+
+promotion(convert(200, usd));
