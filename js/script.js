@@ -103,3 +103,48 @@ function promotion(result) {
 }
 
 promotion(convert(200, usd));
+
+const options = {
+  name: "test",
+  width: 1024,
+  height: 1024,
+  colors: {
+    background: "red",
+    border: "blue",
+  },
+};
+
+for (let key of Object.keys(options)) {
+  console.log(key);
+  if (typeof options[key] === "object") {
+    for (let nestedKey of Object.keys(options[key])) {
+      console.log(nestedKey);
+    }
+  }
+}
+
+console.log(Object.values(options));
+let counter = 0;
+
+for (let key in options) {
+  if (typeof options[key] === "object") {
+    for (let i in options[key]) {
+      console.log(i, options[key][i]);
+      counter++
+    }
+  } else {
+    console.log(key, options[key]);
+    counter++
+  }
+}
+
+
+const arr = [1, 44, 5, 77, 9, 55];
+// arr.forEach((item, i, r, er)=> {
+//     console.log(i, r, er, item)
+// })
+ arr.splice(1, 0, 6, 3)
+ arr.sort()
+ arr.reverse()
+ const newArr = arr.concat(8);
+ console.log(newArr); 
