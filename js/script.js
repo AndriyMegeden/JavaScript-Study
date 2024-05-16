@@ -26,24 +26,49 @@ let personalMovie = {
   actors: {},
   genres: [],
   privat: false,
+  // метод який перевіряє privat і встановлює протилежне значення
+  toggleVisible: function () {
+    if (this.privat === false) {
+      this.privat = true;
+    } else {
+      this.privat = false;
+    }
+  },
 };
 
+// тут функція яка виводить в консоль аргумент який їй передадуть
 function showMyDB(db) {
   if (!db) {
-    console.log(personalMovie);
+    console.log(db);
   }
 }
-
-showMyDB(personalMovie.privat);
+// приміняєм showMyDB функцію
+showMyDB(personalMovie);
+console.log(personalMovie);
+// приміняєм toggleVisible метод
+personalMovie.toggleVisible();
+console.log(personalMovie);
 
 // функція яка видає вікно з номером жанру від 1-3 і записує це в масив genres
 function writeGenres() {
   for (let i = 1; i <= 3; i++) {
     const genre = prompt(`Ваш любимий жанр під номером ${i}`, "");
-    personalMovie.genres[i - 1] = genre;
+    // якщо пуста строка то вертає назад і видає шо нема даних
+    if (genre === "" || genre == null) {
+      console.log("немає даних, введіть");
+      i--;
+    } else {
+      personalMovie.genres[i - 1] = genre;
+    }
   }
+  // перебираєм жанри і виводим масив в консоль
+  personalMovie.genres.forEach((item, i) => {
+    console.log(`улюблений жанр ${i + 1} назва ${item}`);
+  });
 }
-writeGenres();
+// вивід в консоль
+writeGenres(personalMovie);
+console.log(personalMovie);
 
 // цикл шоб видати спливаючі вікна 2 рази перед тим як закінчити
 for (let i = 0; i < 2; i++) {
@@ -130,21 +155,20 @@ for (let key in options) {
   if (typeof options[key] === "object") {
     for (let i in options[key]) {
       console.log(i, options[key][i]);
-      counter++
+      counter++;
     }
   } else {
     console.log(key, options[key]);
-    counter++
+    counter++;
   }
 }
 
-
 const arr = [1, 44, 5, 77, 9, 55];
-// arr.forEach((item, i, r, er)=> {
-//     console.log(i, r, er, item)
-// })
- arr.splice(1, 0, 6, 3)
- arr.sort()
- arr.reverse()
- const newArr = arr.concat(8);
- console.log(newArr); 
+arr.forEach((item, i, r, er) => {
+  console.log(i, r, er, item);
+});
+arr.splice(1, 0, 6, 3);
+arr.sort();
+arr.reverse();
+const newArr = arr.concat(8);
+console.log(newArr);
