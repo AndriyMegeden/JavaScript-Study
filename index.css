@@ -1,3 +1,68 @@
-h1{
-    color: red;
+h1 {
+  color: red;
+}
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  margin-bottom: 20px;
+}
+
+button {
+  border: none;
+  width: 70px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  .circle {
+    width: 70px;
+    height: 70px;
+    background-color: blue;
+    border-radius: 100%;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+  margin-bottom: 20px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  .heart {
+    position: relative;
+    height: 110px;
+    width: 20%;
+    .square {
+      position: absolute;
+      left: 50px;
+      width: 70px;
+      height: 70px;
+      background-color: red;
+      transform: rotate(45deg);
+    }
+    .circle {
+      width: 70px;
+      height: 70px;
+      background-color: red;
+      border-radius: 100%;
+    }
+    .one {
+      position: absolute;
+      top: -25px;
+      left: 75px;
+    }
+    .two {
+      position: absolute;
+      top: -25px;
+      left: 25px;
+    }
+  }
 }

@@ -172,3 +172,8 @@ arr.sort();
 arr.reverse();
 const newArr = arr.concat(8);
 console.log(newArr);
+
+
+const j = document.getElementsByTagName('button');
+
+console.log(j)
