@@ -16,6 +16,9 @@ button {
   background-color: black;
   color: white;
   margin-bottom: 20px;
+  &.one {
+    background-color: green;
+  }
 }
 
 .wrap {
