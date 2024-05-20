@@ -59,8 +59,14 @@ function displayMovies() {
   container.innerHTML = ""; // Очистка контейнера перед відображенням
 
   data.movies.forEach((item, index) => {
+    // якщо фільм длінніше 11 символів то 3 крапки 
+    if (item.length > 11) {
+      item = `${item.substring(0, 12)}...`;
+    }
+
     const div = document.createElement("div");
     div.textContent = item;
+
     div.setAttribute("data-index", index); // Додавання data-index атрибуту
     div.addEventListener("click", removeMovie);
     container.appendChild(div);
