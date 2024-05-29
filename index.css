@@ -1,5 +1,27 @@
+body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 h1 {
   color: red;
+}
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+.red {
+  background-color: red !important;
+  margin-bottom: 20px !important;
+}
+.blue {
+  background-color: blue !important;
 }
 .box {
   width: 100px;
@@ -67,5 +89,83 @@ button {
       top: -25px;
       left: 25px;
     }
+  }
+}
+.wrap-timer {
+  width: 460px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 30px;
+
+  .title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .timer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .title {
+      font-size: 28px;
+    }
+    .timer_block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 100px;
+      box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.3);
+      span {
+        font-size: 28px;
+        font-weight: 800;
+      }
+    }
+  }
+}
+
+.scroll {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .text {
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    scroll-container {
+      display: block;
+      width: 350px;
+      height: 300px;
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+.top-scroll {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 100px;
+  background-color: green;
+  color: white;
+  span {
+    padding: 16px;
+  }
+}
+
+.menu_item {
+  padding: 16px;
+  width: 400px;
+  border: 1px solid black;
+  margin-bottom: 30px;
+  .text {
+    margin-bottom: 20px;
+  }
+  .price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
