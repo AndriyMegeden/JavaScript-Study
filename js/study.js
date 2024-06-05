@@ -169,3 +169,26 @@ const card = new MenuCard(
   ".menu" // Використовуємо '.menu' як батьківський елемент
 );
 card.render();
+
+// конвертація валюти
+
+const inputUA = document.getElementById("ua");
+const inputUSD = document.getElementById("usd");
+
+inputUA.addEventListener("input", () => {
+  const request = new XMLHttpRequest();
+
+  request.open("GET", "js/current.json");
+  // спеціальний тип який говорить в якому форматі і як отримувати наші дані
+  request.setRequestHeader("Content-type", "application/json; charset=utf-8");
+  request.send();
+
+  request.addEventListener("load", () => {
+    if (request.status === 200) {
+      const data = JSON.parse(request.response);
+      inputUSD.value = +inputUA.value / data.current.usd;
+    } else {
+      inputUSD.value = "something went wrong";
+    }
+  });
+});
