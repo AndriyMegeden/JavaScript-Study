@@ -19,7 +19,42 @@ body {
     }
   }
 }
-
+.slider {
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    .arrow {
+      width: 35px;
+      height: 35px;
+      &.left-arrow {
+        transform: rotate(180deg);
+      }
+    }
+    .numbers {
+      display: flex;
+      margin-left: 15px;
+      margin-right: 15px;
+      font-size: 22px;
+    }
+  }
+  .slids-cards {
+    .slide {
+      width: 100%;
+      height: 300px; /* або інша потрібна вам висота */
+      overflow: hidden; /* приховати частини зображення, що виходять за межі контейнера */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
 .server-input {
   margin-top: 10px;
   margin-bottom: 20px;
