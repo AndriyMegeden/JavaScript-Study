@@ -1,4 +1,5 @@
 const slides = document.querySelectorAll(".slide"),
+  dotsContainer = document.querySelector(".switcher"),
   prev = document.querySelector(".left-arrow"),
   next = document.querySelector(".right-arrow"),
   total = document.querySelector(".total"),
@@ -12,6 +13,17 @@ if (slides.length < 10) {
 } else {
   total.textContent = slides.length;
 }
+
+slides.forEach((slide, index) => {
+  const dot = document.createElement("div");
+  dot.classList.add("dot");
+  dot.index = index + 1;
+  dotsContainer.appendChild(dot);
+
+  if (index === 0) {
+    dot.classList.add("dot-active");
+  }
+});
 
 function showSlides(n) {
   if (n > slides.length) {
@@ -29,6 +41,15 @@ function showSlides(n) {
   } else {
     current.textContent = slides.length;
   }
+
+  const dots = document.querySelectorAll(".dot");
+  dots.forEach((dot, index) => {
+    if (index === slideIndex - 1) {
+      dot.classList.add("dot-active");
+    } else {
+      dot.classList.remove("dot-active");
+    }
+  });
 }
 
 function plusSlides(n) {

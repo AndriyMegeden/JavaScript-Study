@@ -40,6 +40,7 @@ body {
     }
   }
   .slids-cards {
+    margin-bottom: 20px;
     .slide {
       width: 100%;
       height: 300px; /* або інша потрібна вам висота */
@@ -52,6 +53,26 @@ body {
         height: 100%;
         object-fit: cover;
       }
+    }
+  }
+  .switcher {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    .dot {
+      margin-right: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 100%;
+      background-color: gray;
+    }
+    .dot-active {
+      margin-right: 8px;
+      width: 15px;
+      height: 15px;
+      border-radius: 100%;
+      background-color: rgb(6, 33, 240) !important;
     }
   }
 }
