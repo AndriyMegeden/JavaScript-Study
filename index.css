@@ -4,6 +4,25 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  .link-button {
+    margin: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      color: white;
+      border-radius: 20px;
+      background-color: blue;
+    }
+  }
+}
+
+.server-input {
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 h1 {

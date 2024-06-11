@@ -127,48 +127,7 @@ Array.from(scrolls).forEach((scroll) => {
   });
 });
 
-class MenuCard {
-  constructor(src, title, descr, price, parentSelector) {
-    this.src = src;
-    this.title = title;
-    this.descr = descr;
-    this.price = price;
-    this.parent = document.querySelector(parentSelector);
-    this.transfer = 40;
-    this.chage();
-  }
 
-  chage() {
-    this.price = this.price * this.transfer;
-  }
-
-  render() {
-    const element = document.createElement("div");
-    element.innerHTML = `
-    <div class="menu_item">
-      <img src=${this.src} alt="" />
-      <h3 class="title">${this.title}</h3>
-      <div class="text">
-        ${this.descr}
-      </div>
-      <div class="price">
-        <div>Price</div>
-        <div>${this.price} грн</div>
-      </div>
-    </div>
-    `;
-    this.parent.append(element);
-  }
-}
-
-const card = new MenuCard(
-  "images/burger.jpg",
-  "BigMac",
-  `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea voluptas?`,
-  2,
-  ".menu" // Використовуємо '.menu' як батьківський елемент
-);
-card.render();
 
 // конвертація валюти
 
@@ -178,7 +137,7 @@ const inputUSD = document.getElementById("usd");
 inputUA.addEventListener("input", () => {
   const request = new XMLHttpRequest();
 
-  request.open("GET", "js/current.json");
+  request.open("GET", "json/current.json");
   // спеціальний тип який говорить в якому форматі і як отримувати наші дані
   request.setRequestHeader("Content-type", "application/json; charset=utf-8");
   request.send();

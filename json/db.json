@@ -1,0 +1,24 @@
+{
+  "menu": [
+    {
+      "img": "images/burger.jpg",
+      "title": "Sheese Burger",
+      "descr": "very delicious",
+      "price": "3",
+      "id": "162d"
+    },
+    {
+      "img": "images/maffin.jpg",
+      "title": "Muffin",
+      "descr": "5 pieces with honey",
+      "price": "2",
+      "id": "162d"
+    }
+  ],
+  "requests": [
+    {
+      "id": "c04d",
+      "email": "andriy@gmail.com"
+    }
+  ]
+}
