@@ -21,18 +21,24 @@ body {
 }
 
 .calculate {
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   .title {
+    margin-bottom: 20px;
     font-size: 24px;
     font-weight: 700;
   }
   .text {
     display: flex;
     flex-direction: row;
-    width: 35%;
+    width: 38%;
     justify-content: space-between;
+    .res-text {
+      color: green;
+      font-size: 18px;
+    }
   }
   .subtitle {
     font-size: 20px;
@@ -41,6 +47,7 @@ body {
   .toggle {
     .switch-active {
       background-color: green;
+      color: white;
     }
     margin-top: 20px;
     margin-bottom: 20px;
