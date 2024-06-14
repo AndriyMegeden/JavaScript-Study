@@ -99,3 +99,9 @@ form.addEventListener("submit", (event) => {
     input.value = ""; // Очищення інпута після додавання значення до масиву
   }
 });
+
+
+
+
+
+

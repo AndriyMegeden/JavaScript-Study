@@ -1,3 +1,7 @@
+// const { response } = require("express");
+
+// const { method } = require("lodash");
+
 class MenuCard {
   constructor(src, title, descr, price, parentSelector) {
     this.src = src;
@@ -49,8 +53,6 @@ getInfoAboutCards("http://localhost:3000/menu").then((data) => {
   });
 });
 
-
-
 // відправляєм дані з нашого інпута на сервер
 const data = document.getElementById("email");
 
@@ -76,5 +78,38 @@ data.addEventListener("blur", () => {
     })
     .catch((error) => {
       console.error("Error:", error); // Обробити помилку
+    });
+});
+
+// видалення останнього емейлу
+const deleteEmailButton = document.querySelector("button");
+
+deleteEmailButton.addEventListener("click", () => {
+  // Спочатку отримуємо всі записи
+  fetch("http://localhost:3000/requests")
+    .then((response) => response.json()) // Перетворюємо відповідь у JSON
+    .then((data) => {
+      if (data.length === 0) {
+        alert("Немає записів для видалення");
+        return;
+      }
+
+      // Отримуємо останній запис
+      const lastRecord = data[data.length - 1];
+      const lastRecordId = lastRecord.id;
+
+      // Видаляємо останній запис за його ідентифікатором
+      fetch(`http://localhost:3000/requests/${lastRecordId}`, {
+        method: "DELETE",
+      }).then((response) => {
+        if (response.ok) {
+          alert("Останній запис видалено");
+        } else {
+          alert("Помилка при видаленні запису");
+        }
+      });
+    })
+    .catch((error) => {
+      console.error("Помилка при отриманні записів:", error);
     });
 });
