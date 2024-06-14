@@ -113,3 +113,46 @@ deleteEmailButton.addEventListener("click", () => {
       console.error("Помилка при отриманні записів:", error);
     });
 });
+
+
+
+
+
+// Видалення всіх емейлів
+const deleteAllEmailButton = document.getElementById("all");
+
+deleteAllEmailButton.addEventListener("click", () => {
+  // Спочатку отримуємо всі записи
+  fetch("http://localhost:3000/requests")
+    .then((response) => response.json()) // Перетворюємо відповідь у JSON
+    .then((data) => {
+      if (data.length === 0) {
+        alert("Немає записів для видалення");
+        return;
+      }
+
+      // Видаляємо кожен запис
+      const deletePromises = data.map(record => {
+        return fetch(`http://localhost:3000/requests/${record.id}`, {
+          method: "DELETE",
+        });
+      });
+
+      // Чекаємо, поки всі запити завершаться
+      Promise.all(deletePromises)
+        .then(responses => {
+          const allDeleted = responses.every(response => response.ok);
+          if (allDeleted) {
+            alert("Всі записи видалено");
+          } else {
+            alert("Помилка при видаленні деяких записів");
+          }
+        })
+        .catch((error) => {
+          console.error("Помилка при видаленні записів:", error);
+        });
+    })
+    .catch((error) => {
+      console.error("Помилка при отриманні записів:", error);
+    });
+});
